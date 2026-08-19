@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Elysia settings</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+    <style>
+      body { min-width: 380px; min-height: 420px; }
+      form { padding: 8px 16px 20px; display: grid; gap: 14px; }
+      label span {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      input, select {
+        width: 100%;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        border-radius: 10px;
+        padding: 9px 11px;
+        outline: none;
+      }
+      input:focus, select:focus { border-color: var(--text); }
+      .row { display: flex; gap: 8px; justify-content: flex-end; }
+      .primary {
+        border: 0;
+        background: var(--send);
+        color: var(--send-fg);
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .ghost {
+        border: 1px solid var(--border);
+        background: transparent;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="model-btn" style="pointer-events:none">Settings</div>
+    </header>
+    <form id="form">
+      <label>
+        <span>Proxy URL</span>
+        <input id="apiBaseUrl" type="url" required placeholder="http://localhost:8788" />
+      </label>
+      <label>
+        <span>Collection</span>
+        <input id="collectionName" type="text" />
+      </label>
+      <label>
+        <span>Language</span>
+        <select id="language"></select>
+      </label>
+      <label>
+        <span>Model</span>
+        <select id="model"></select>
+      </label>
+      <label>
+        <span>Theme</span>
+        <select id="theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <div id="status" class="notice">Checking connection…</div>
+      <div class="row">
+        <button class="ghost" id="test" type="button">Test</button>
+        <button class="primary" type="submit">Save</button>
+      </div>
+    </form>
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

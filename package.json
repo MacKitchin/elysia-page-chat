@@ -1,0 +1,26 @@
+{
+  "name": "elysia-page-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone Chrome side panel that asks Elysia about the open page. Internal Informa prototype.",
+  "scripts": {
+    "dev": "tsx watch server/src/index.ts",
+    "start": "tsx server/src/index.ts",
+    "test": "vitest run",
+    "icons": "node extension/generate-icons.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.0",
+    "hono": "^4.9.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsx": "^4.20.5",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
+  }
+}
