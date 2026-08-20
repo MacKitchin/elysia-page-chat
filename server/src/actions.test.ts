@@ -17,6 +17,10 @@ describe("PAGE_ACTIONS", () => {
     }
   });
 
+  it("tells outline to use nested markdown bullets", () => {
+    expect(actionById("outline")?.prompt).toContain("nested markdown bullets");
+  });
+
   it("looks up actions by id", () => {
     expect(actionById("actions")?.label).toBe("Extract action items");
     expect(actionById("missing")).toBeUndefined();

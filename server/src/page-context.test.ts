@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   PAGE_CONTEXT_CHAR_LIMIT,
+  RESPONSE_FORMAT,
   buildPageContextQuery,
+  composeCompletionQuery,
   userQuestionFromPrompt,
 } from "./page-context";
 
@@ -30,6 +32,17 @@ describe("buildPageContextQuery", () => {
     });
     expect(query).toContain("Only this sentence.");
     expect(query).not.toContain("Long page that should not be primary.");
+  });
+
+  it("adds markdown layout rules and keeps the user question recoverable", () => {
+    const query = composeCompletionQuery("Outline this", {
+      url: "https://example.com",
+      title: "Doc",
+      text: "Hello.",
+    });
+    expect(query.startsWith(RESPONSE_FORMAT)).toBe(true);
+    expect(query).toContain("nested bullet lists");
+    expect(userQuestionFromPrompt(query)).toBe("Outline this");
   });
 
   it("notes truncation past the char limit", () => {

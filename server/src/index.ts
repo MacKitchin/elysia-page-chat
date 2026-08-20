@@ -37,7 +37,7 @@ import { defaultModel, LANGUAGES, MODEL_CATALOG } from "./elysia/models";
 import { encodeSse } from "./elysia/stream";
 import {
   PAGE_CONTEXT_CHAR_LIMIT,
-  buildPageContextQuery,
+  composeCompletionQuery,
   userQuestionFromPrompt,
   type PageContext,
 } from "./page-context";
@@ -100,7 +100,7 @@ app.post("/api/chat/stream", async (c) => {
     return c.json({ error: "query is required" }, 400);
   }
 
-  const query = buildPageContextQuery(question, body.pageContext);
+  const query = composeCompletionQuery(question, body.pageContext);
   const chatSession = body.chatSession || randomUUID();
   const selection = (body.pageContext?.selection || "").trim();
   const extract = selection || body.pageContext?.text || "";

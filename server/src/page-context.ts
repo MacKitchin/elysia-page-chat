@@ -9,6 +9,16 @@ export interface PageContext {
 
 const USER_QUESTION_MARKER = "User question: ";
 
+export const RESPONSE_FORMAT = `Format the answer in GitHub-flavored Markdown for a narrow chat panel:
+- Put headings on their own lines (## Section). Never place # markers in the middle of a sentence.
+- Use nested bullet lists for outlines and inventories (- item, then two-space indented - child). Never write an outline as one paragraph or as "I. A. - item" on a single line.
+- Put a blank line between top-level sections.
+- Keep paragraphs to 1–3 sentences.
+- Use **bold** only for short labels, not whole sentences.
+- Use a quoted block (>) for verbatim quotes.
+- Use a markdown table only for a small grid of comparable facts (2–6 rows).
+- Checklists use "- [ ]" items.`;
+
 export function normalizeExtractedText(raw: string): string {
   return raw
     .replace(/\u00a0/g, " ")
@@ -69,4 +79,15 @@ export function buildPageContextQuery(
     `${USER_QUESTION_MARKER}${q}`,
   );
   return lines.join("\n");
+}
+
+export function composeCompletionQuery(
+  question: string,
+  page?: PageContext | null,
+): string {
+  const wrapped = buildPageContextQuery(question, page);
+  const body = wrapped.includes(USER_QUESTION_MARKER)
+    ? wrapped
+    : `${USER_QUESTION_MARKER}${wrapped}`;
+  return `${RESPONSE_FORMAT}\n\n${body}`;
 }
