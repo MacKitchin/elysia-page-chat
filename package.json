@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Standalone Chrome side panel that asks Elysia about the open page. Internal Informa prototype.",
+  "description": "Chrome side panel that asks Elysia about the open page. Internal Informa prototype for invited colleagues.",
   "scripts": {
     "dev": "tsx watch server/src/index.ts",
     "start": "tsx server/src/index.ts",

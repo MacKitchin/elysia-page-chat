@@ -1,6 +1,8 @@
 # Proxy API
 
-Base URL: `http://localhost:8788` (override with `PORT`).
+Install and daily use: [README](../README.md).
+
+This is the local server each person starts with `npm run dev`. It is not a shared Informa host. Base URL on your machine: `http://localhost:8788` (override with `PORT`).
 
 CORS: `chrome-extension://*` and `http://localhost` / `http://127.0.0.1` only.
 
@@ -71,7 +73,7 @@ The proxy builds the Elysia prompt from `query` + `pageContext` and forwards a s
 
 ## Environment
 
-Copy `.env.example` to `.env`.
+Copy `.env.example` to `.env` on your machine. Do not commit `.env`.
 
 | Variable | Purpose |
 |---|---|

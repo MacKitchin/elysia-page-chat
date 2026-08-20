@@ -1,14 +1,17 @@
 # Security
 
-Treat this as a draft on Informa infrastructure. It is not a customer-facing product.
+Install and daily use: [README](../README.md).
+
+Treat this as a draft on Informa infrastructure. It is not a customer-facing product. Everyone invited to the repo runs it locally; nothing here is a shared production service.
 
 ## Secrets
 
-Elysia uses OAuth2 **client credentials**. Put `ELYSIA_CLIENT_ID` and `ELYSIA_CLIENT_SECRET` in `.env` on the proxy host only.
+Elysia uses OAuth2 **client credentials**. Put `ELYSIA_CLIENT_ID` and `ELYSIA_CLIENT_SECRET` in your local `.env` only.
 
 - Do not put secrets in `extension/`
-- Do not commit `.env` or `.env.local`
-- Do not paste tokens into issues or chat transcripts
+- Do not commit `.env` or `.env.local` (each person has their own)
+- Do not paste tokens into issues, pull requests, Slack, or email
+- Do not email a populated `.env` to colleagues; send credentials through the channel your team already uses for secrets
 
 The proxy caches the access token in memory until near expiry.
 
@@ -29,7 +32,7 @@ Do not:
 - Ingest pages into a shared knowledge collection from this tool
 - Point Community keys at a public or customer-facing host
 
-Information Security should review any rollout beyond personal use.
+Information Security should review any rollout beyond this invited group (for example a company-wide store listing or a hosted proxy).
 
 ## CORS
 

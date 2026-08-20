@@ -1,41 +1,32 @@
 # Contributing
 
-This is an internal prototype. Keep changes small and documented.
+To **install and use** the extension, follow the [README](README.md). Stop there unless you are changing the code.
 
-## Setup
+This file is for people who want to patch or extend the project. Everyone invited to the repo can open a pull request.
 
-```bash
-cp .env.example .env
-# fill ELYSIA_CLIENT_ID, ELYSIA_CLIENT_SECRET, ELYSIA_APP_ID
-npm install
-npm test
-npm run dev
-```
+## Before you change anything
 
-Load `extension/` unpacked in Chrome. After JS/CSS/HTML changes, click **Reload** on `chrome://extensions`.
-
-## Tests
-
-Proxy logic is covered by Vitest:
+Install as in the README so you can run the panel locally. Then:
 
 ```bash
 npm test
 ```
 
-Add a failing test before changing `page-context.ts`, `cors.ts`, or `actions.ts`.
+## Making a change
 
-The side panel itself is not unit-tested. After UI work, load the unpacked extension, open a public page, and run:
+1. Create a branch from `main`.
+2. Keep the extension a thin UI. Elysia auth and completion stay in `server/`. Do not call the Elysia API from the extension.
+3. If you change `page-context.ts`, `cors.ts`, or `actions.ts`, add or update a Vitest test first.
+4. After UI work, reload the unpacked extension and check:
+   - Summarize this page
+   - A follow-up in the same session
+   - Selected-text mode via **+**
+   - Light and dark theme
+   - A `chrome://` tab (extract should be refused)
+5. Open a pull request. Do not push secrets, `.env`, or real page extracts.
 
-- empty-state action (Summarize this page)
-- a free-text follow-up in the same session
-- selected-text mode via **+**
-- light and dark theme
-- a `chrome://` tab (should refuse extract)
+After JS/CSS/HTML changes, click **Reload** on the Elysia card at `chrome://extensions`.
 
 ## Secrets
 
-Do not commit `.env`, `.env.local`, tokens, or real page extracts that contain personal data. Use synthetic text in tests.
-
-## Scope
-
-The extension must remain a thin UI. Elysia auth and completion stay in `server/`. Do not call `api.stage.ai.informa.com` from the extension.
+Do not commit `.env`, `.env.local`, tokens, or page text that contains personal data. Use synthetic text in tests. Do not paste credentials into the PR description.

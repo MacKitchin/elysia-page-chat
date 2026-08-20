@@ -4,7 +4,10 @@ Internal Informa prototype.
 Not an official Informa product.
 Not affiliated with, endorsed by, or a product of OpenAI.
 
-All rights reserved. Do not distribute outside Informa without
-approval from the relevant product and Information Security teams.
+Colleagues invited to this private repository may clone it and
+run it on their own machines. Do not redistribute outside Informa
+without approval from the relevant product and Information Security
+teams.
 
 Elysia API credentials must never be committed to this repository.
+Each person stores them in a local .env file that Git ignores.

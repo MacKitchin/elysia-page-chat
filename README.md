@@ -2,7 +2,7 @@
 
 Ask Elysia about the web page you have open, from a Chrome side panel.
 
-This is an **internal Informa prototype** for colleagues who have been given access to this private repository. It is not an official Informa product and is not affiliated with OpenAI.
+This is an **internal Informa prototype** for anyone invited to this private repository. Each person installs it on their own computer. It is not an official Informa product and is not affiliated with OpenAI.
 
 You install two things on your machine:
 
@@ -17,13 +17,13 @@ The extension never stores the API secret. The proxy must be running whenever yo
 
 | Requirement | Notes |
 |---|---|
-| Access to this GitHub repo | You should already have been invited. If clone fails with 404, ask the owner to add your GitHub account. |
+| Access to this GitHub repo | You should already have been invited. If clone fails with 404, ask whoever invited you to add your GitHub account. |
 | macOS or Windows | Steps below cover both. |
 | Google Chrome 114 or later | Edge may work; these steps are written for Chrome. |
 | Node.js 20 or later | Checked in step 2. |
-| Elysia credentials | `ELYSIA_CLIENT_ID`, `ELYSIA_CLIENT_SECRET`, and `ELYSIA_APP_ID`. If you already run Intelligence OS, copy them from that project’s `.env.local`. Otherwise ask the person who shared this repo. |
+| Elysia credentials | `ELYSIA_CLIENT_ID`, `ELYSIA_CLIENT_SECRET`, and `ELYSIA_APP_ID`. Ask whoever invited you if you do not have them yet. Each person keeps these in a local `.env` file — never commit them. |
 
-You do **not** need Intelligence OS installed. This project is standalone.
+This project is standalone. You do not need any other Informa app installed.
 
 ---
 
@@ -111,9 +111,9 @@ ELYSIA_APP_ID=your-app-id
 
 Do not wrap the values in quotes unless the value itself contains spaces (these should not).
 
-Do **not** commit `.env`. Do **not** paste the secret into Slack, email, or a GitHub issue.
+Do **not** commit `.env`. Do **not** paste the secret into Slack, email, or a GitHub issue. Other people with repo access have their own clone and their own `.env`.
 
-If you already use Intelligence OS, copy the same three names from that project’s `.env.local`.
+If you already have these three values from another Elysia prototype on your machine, you can reuse them.
 
 Community app ids should keep:
 
@@ -231,6 +231,8 @@ npm run dev
 Then **Reload** the extension on `chrome://extensions`.
 
 ---
+
+Install and daily use stop here. The links below are optional.
 
 ## Further reading
 

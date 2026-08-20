@@ -253,7 +253,9 @@ async function fetchStatus() {
   const base = settings.apiBaseUrl.replace(/\/$/, "");
   const res = await fetch(`${base}/api/status`, { headers: { Accept: "application/json" } });
   if (!res.ok) {
-    throw new Error(`Proxy returned ${res.status}. Start it with npm run dev in elysia-page-chat.`);
+    throw new Error(
+      `Proxy returned ${res.status}. In a terminal, from the elysia-page-chat folder, run npm run dev and leave it open.`,
+    );
   }
   return res.json();
 }

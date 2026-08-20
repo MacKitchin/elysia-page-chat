@@ -3,7 +3,7 @@
   "minimum_chrome_version": "114",
   "name": "Elysia",
   "version": "1.0.0",
-  "description": "Ask Elysia about the page you have open.",
+  "description": "Ask Elysia about the page you have open. Internal Informa prototype.",
   "action": {
     "default_title": "Elysia",
     "default_icon": {

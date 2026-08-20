@@ -1,8 +1,10 @@
 # Chrome extension
 
+Install and daily use: [README](../README.md).
+
 Load **`extension/`** unpacked. That directory contains `manifest.json`.
 
-Manifest V3, minimum Chrome 114. Side panel opens on toolbar click (`openPanelOnActionClick`) and on **Alt+Shift+E**.
+Manifest V3, minimum Chrome 114. The side panel opens on toolbar click and on **Alt+Shift+E** (Windows) or **Option+Shift+E** (macOS).
 
 ## Permissions
 
@@ -61,4 +63,4 @@ Open from the menu (**Proxy & model…**) or via the extension’s options page.
 - Collection, language, model
 - Theme
 
-Settings use a dedicated storage key so they do not collide with other local prototypes.
+Settings are stored in Chrome as `elysiaPageChat` on that browser profile only. They do not sync through this GitHub repo.

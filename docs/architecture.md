@@ -1,6 +1,8 @@
 # Architecture
 
-Elysia Page Chat is two processes: a Manifest V3 Chrome extension and a local Node proxy.
+Install and daily use: [README](../README.md).
+
+Each colleague runs two processes **on their own computer**: a Manifest V3 Chrome extension and a local Node proxy. There is no shared hosted server.
 
 ```text
 Active tab
@@ -16,7 +18,7 @@ The extension never holds `ELYSIA_CLIENT_SECRET`. Chrome’s side panel origin i
 
 ## Why a proxy
 
-Elysia authenticates with OAuth2 client credentials. That is a confidential client. An unpacked extension is readable on disk, so the secret belongs on a server you control. The proxy in `server/` is that server for local use.
+Elysia authenticates with OAuth2 client credentials. That is a confidential client. An unpacked extension is readable on disk, so the secret belongs on a process you control. The proxy in `server/` is that process on your machine. Other people in this repo run their own copy; they do not use yours.
 
 ## Page context
 

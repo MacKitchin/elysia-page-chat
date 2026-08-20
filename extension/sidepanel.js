@@ -182,7 +182,7 @@ async function loadStatus() {
     document.getElementById("modelLabel").textContent = status.model?.label || "Elysia";
   } catch (err) {
     setNotice(
-      `${err instanceof Error ? err.message : String(err)} Run npm run dev in elysia-page-chat.`,
+      `${err instanceof Error ? err.message : String(err)} From the elysia-page-chat folder, run npm run dev and leave that terminal open.`,
       "error",
     );
   }

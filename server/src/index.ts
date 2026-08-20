@@ -57,7 +57,7 @@ app.use("*", async (c, next) => {
 
 app.get("/", (c) =>
   c.text(
-    "Elysia Page Chat proxy is running. In Chrome, Load unpacked → the extension/ folder in this project.",
+    "Elysia Page Chat proxy is running on this computer. In Chrome, Load unpacked → the extension/ folder. Leave this process running while you use the panel. Setup: see README.md.",
   ),
 );
 
@@ -75,7 +75,7 @@ app.get("/api/status", (c) => {
     models: MODEL_CATALOG,
     languages: LANGUAGES,
     notice:
-      "Internal prototype. Not an official Informa or OpenAI product. Page text is sent to Elysia.",
+      "Internal Informa prototype for invited colleagues. Not an official Informa or OpenAI product. Page text is sent to Elysia.",
   });
 });
 
